@@ -1,19 +1,30 @@
 #!/usr/bin/env bash
+clear
+echo '      ____              __        '
+echo '     / __ \   ____ _   / /      ___ '
+echo '    / / / /  / __ `/  / /      / _ \'
+echo '   / /_/ /  / /_/ /  / /___   /  __/'
+echo '  /_____/   \__,_/  /_____/   \___/ '
+echo ''
+echo '    +-+-+-+-+-+ +-+-+-+-+-+-+-+'
+echo '    |L|i|n|u|x| |S|h|i|z|n|i|t|'
+echo '    +-+-+-+-+-+ +-+-+-+-+-+-+-+'
+echo ''
 
+echo 'Downloading the node tar file'
 wget https://nodejs.org/dist/v4.2.4/node-v4.2.4-linux-armv6l.tar.gz
-
+echo 'Moving the node tar file to opt'
 sudo mv node-v4.2.4-linux-armv6l.tar.gz /opt
-
+echo 'Extracting the tar file'
 cd /opt
-
 sudo tar -xzf node-v4.2.4-linux-armv6l.tar.gz
-
+echo 'Moving the extracted tar file to nodejs'
 sudo mv node-v4.2.4-linux-armv6l nodejs
-
+echo 'Removing the tar file'
 sudo rm node-v4.2.4-linux-armv6l.tar.gz
-
+echo 'Symbolic link opt/node > usr/bin/node'
 sudo ln -s /opt/nodejs/bin/node /usr/bin/node
-
+echo 'Symbolic link opt/npm > usr/bin/npm'
 sudo ln -s /opt/nodejs/bin/npm /usr/bin/npm
-
+echo 'Install (global) of gulp'
 sudo npm install -g gulp
